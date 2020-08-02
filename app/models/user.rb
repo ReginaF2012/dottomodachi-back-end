@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
     validate :username_validator
-    validates :password_confirmation, presence: true
+    validates :password_confirmation, presence: true, on: :create
     validate :password_complexity
 
     def password_complexity

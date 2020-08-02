@@ -21,6 +21,7 @@ Bundler.require(*Rails.groups)
 
 module Dottomodachi
   class Application < Rails::Application
+    config.autoload_paths << Rails.root.join('lib')
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
@@ -34,15 +35,12 @@ module Dottomodachi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins '*'
-        resource '*',
-          :headers => :any,
-          :methods => [:get, :post, :delete, :put, :patch, :options, :head],
-          :max_age => 0
-      end
-    end
+    config.session_store :cookie_store, key: '_interslice_session', secure: true, same_site: :lax # <-- this also configures session_options for use below
+    config.middleware.use ActionDispatch::Cookies # Required for all session management (regardless of session_store)
+    config.middleware.use config.session_store, config.session_options
+
+    # config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
     
   end
 end
