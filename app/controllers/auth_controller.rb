@@ -11,13 +11,13 @@ class AuthController < ApplicationController
       end
     end
 
+    # User will be redirected here if they go to the page when there is a JWT in local storage
     def auto_login
-        if current_user
-          token = encode_token({ user_id: current_user.id })
-          render json: { userdata: UserSerializer.new(current_user), jwt: token }, status: :accepted
-        else
-          render json: { errors: 'Oops! Something went wrong.'}, status: :unauthorized
-        end
+
+      token = encode_token({ user_id: current_user.id })
+      render json: { userdata: UserSerializer.new(current_user), jwt: token }, status: :accepte
+      render json: { errors: 'Oops! Something went wrong.'}, status: :unauthorized
+
     end
   
     private
