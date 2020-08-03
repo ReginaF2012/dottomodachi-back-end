@@ -7,5 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Dtomo.destroy_all
 
-10.times{ User.create(username: Faker::Internet.username, password: "Password1!", password_confirmation: "Password1!") }
+10.times do
+    user = User.create(username: Faker::Internet.username(separators:"_"), password: "Password1!", password_confirmation: "Password1!")
+    dottomodachi = Dtomo.create(name: Faker::Artist.name, user: user)
+end

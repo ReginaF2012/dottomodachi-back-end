@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_31_154117) do
+ActiveRecord::Schema.define(version: 2020_08_03_220930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dtomos", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id"
+    t.integer "happiness_meter", default: 75
+    t.integer "hunger_meter", default: 75
+    t.integer "weight_meter", default: 50
+    t.integer "total_points", default: 0
+    t.integer "evolution_countdown", default: 60
+    t.string "evo_type", default: "N"
+    t.integer "stage", default: 1
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_dtomos_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"

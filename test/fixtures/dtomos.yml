@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  belongs_to: 
+  happiness_meter: 1
+  hunger_meter: 1
+  weight_meter: 1
+  total_points: 1
+  evolution_countdown: 1
+  evo_type: MyString
+  stage: 1
+
+two:
+  name: MyString
+  belongs_to: 
+  happiness_meter: 1
+  hunger_meter: 1
+  weight_meter: 1
+  total_points: 1
+  evolution_countdown: 1
+  evo_type: MyString
+  stage: 1

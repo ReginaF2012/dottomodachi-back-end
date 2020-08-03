@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
+    has_many :dtomos
     validate :username_validator
     validates :password_confirmation, presence: true, on: :create
     validate :password_complexity
@@ -12,7 +13,7 @@ class User < ApplicationRecord
     end
 
     def username_validator
-        return if username.blank? || username =~ /\A[a-zA-Z0-9].{3,20}\z/
+        return if username.blank? || username =~ /\A[a-zA-Z0-9]{3,20}\z/
         errors.add :username, "requirements not met. Length should be 3-20 characters and can only include alphanumeric characters and underscores"
     end
 
