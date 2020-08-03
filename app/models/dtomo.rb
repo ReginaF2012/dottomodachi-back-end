@@ -10,7 +10,7 @@ class Dtomo < ApplicationRecord
     validates :evolution_countdown, numericality: :true
 
     def name_validator
-        return if name.blank? || name =~ /\A[a-zA-Z0-9]{3,20}\z/
+        return if name.blank? || name =~ /\A[a-zA-Z0-9_]{3,20}\z/
         errors.add :name, "requirements not met. Length should be 3-20 characters and can only inclusion: alphanumeric characters and underscores"
     end
     
