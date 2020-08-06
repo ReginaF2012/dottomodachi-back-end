@@ -8,7 +8,7 @@ class CreateDtomos < ActiveRecord::Migration[6.0]
       t.integer :weight_meter, default: 50
       t.integer :total_points, default: 0
       t.integer :evolution_countdown, default: 60
-      t.string :evo_type, default: "N"
+      t.string :evo_type, default: "neutral"
       t.integer :stage, default: 1
 
       t.timestamps

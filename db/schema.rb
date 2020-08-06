@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_220930) do
     t.integer "weight_meter", default: 50
     t.integer "total_points", default: 0
     t.integer "evolution_countdown", default: 60
-    t.string "evo_type", default: "N"
+    t.string "evo_type", default: "neutral"
     t.integer "stage", default: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

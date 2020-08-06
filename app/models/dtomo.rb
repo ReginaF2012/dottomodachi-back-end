@@ -2,7 +2,7 @@ class Dtomo < ApplicationRecord
     belongs_to :user
     validate :name_validator
     validates :stage, inclusion: { in: [1, 2, 3] }
-    validates :evo_type, inclusion: { in: %w(G B N) }
+    validates :evo_type, inclusion: { in: %w(good bad neutral) }
     validates :happiness_meter, inclusion: { in: (0..100).to_a }
     validates :hunger_meter, inclusion: { in: (0..100).to_a }
     validates :weight_meter, inclusion: { in: (0..100).to_a }
