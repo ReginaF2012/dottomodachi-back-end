@@ -8,6 +8,6 @@ class UserSerializer
         options = {only: [:username, :id]}
 
         @user.to_json(options)
-      end
+    end
 
 end
