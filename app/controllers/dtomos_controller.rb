@@ -11,6 +11,16 @@ class DtomosController < ApplicationController
         render json: DtomoSerializer.new(dtomo).to_serialized_json
     end
 
+    def create
+        dtomo = Dtomo.new(dtomo_params)
+        dtomo.user = current_user
+        if dtomo.save
+            render json: DtomoSerializer.new(dtomo).to_serialized_json
+        else
+            render json: { errors: "failed to adopt #{dtomo_params[:name]}" }, status: :not_acceptable
+        end
+    end
+
     private
 
     def dtomo_params
