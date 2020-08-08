@@ -1,7 +1,7 @@
 class DtomosController < ApplicationController
 
     def index
-        dtomos = current_user.dtomos
+        dtomos = current_user.dtomos.valid_dtomos
         render json: DtomoSerializer.new(dtomos).to_serialized_json
     end
 
@@ -14,7 +14,7 @@ class DtomosController < ApplicationController
     private
 
     def dtomo_params
-        params.require(:dottomodachi).permit(:name, :user_id, :happiness_meter, :hunger_meter, :weight_meter, :total_points, :evolution_countdown, :stage, :evo_type)
+        params.require(:dottomodachi).permit(:id, :name, :user_id, :happiness_meter, :hunger_meter, :weight_meter, :total_points, :evolution_countdown, :stage, :evo_type)
     end
 
 end
