@@ -1,24 +1,38 @@
-# README
+# Dottomodachi-back-end Overview
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Dottomodachi is a virtual pixel pet game with a javascript front end and a rails api backend.
+[Front-End](https://github.com/ReginaF2012/dottomodachi-front-end)
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Fork and clone this repo then you will need to alter the database.yml.example file to setup your database using postgres. Afterwards run...
 
-* System dependencies
+    $ rail db:create
 
-* Configuration
+Optionally you can seed the database.
 
-* Database creation
+    $ rake db:seed
 
-* Database initialization
+Startup the server
 
-* How to run the test suite
+    $ rails s
 
-* Services (job queues, cache servers, search engines, etc.)
+To see if it's working you can check
 
-* Deployment instructions
+    $  localhost:3000/dtomos
 
-* ...
+If you have seeded your database you should see some JSON of the dottomodachi that were created.
+
+## Usage
+
+This api is intended to be used with [dottomodachi-front-end](https://github.com/ReginaF2012/dottomodachi-front-end). Once you fork and clone that repo and it is making fetch requests to this server:
+
+-Users can sign up and login
+-Users can adopt Dottomodachi
+-Dottomodachi go through 2 evolution phases
+-Once the dottomodachi has moved away a user can adopt another dottomodachi
+
+
+## License
+
+[MIT License](https://opensource.org/licenses/MIT).
