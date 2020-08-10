@@ -27,10 +27,10 @@ If you have seeded your database you should see some JSON of the dottomodachi th
 
 This api is intended to be used with [dottomodachi-front-end](https://github.com/ReginaF2012/dottomodachi-front-end). Once you fork and clone that repo and it is making fetch requests to this server:
 
--Users can sign up and login
--Users can adopt Dottomodachi
--Dottomodachi go through 2 evolution phases
--Once the dottomodachi has moved away a user can adopt another dottomodachi
+- Users can sign up and login
+- Users can adopt Dottomodachi
+- Dottomodachi go through 2 evolution phases
+- Once the dottomodachi has moved away a user can adopt another dottomodachi
 
 
 ## License
