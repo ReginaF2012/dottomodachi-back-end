@@ -21,6 +21,11 @@ class DtomosController < ApplicationController
         end
     end
 
+    def destroy
+        dtomo = Dtomo.find_by(id: params[:id])
+        dtomo.destroy
+    end
+
     private
 
     def dtomo_params
