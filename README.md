@@ -19,9 +19,15 @@ Startup the server
 
 To see if it's working you can check
 
-    $  localhost:3000/dtomos
+    $  localhost:3000
 
-If you have seeded your database you should see some JSON of the dottomodachi that were created.
+You should see:
+<code>
+{
+"errors": "Please log in"
+}
+</code>
+if things are working correctly.
 
 ## Usage
 
