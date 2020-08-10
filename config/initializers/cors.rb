@@ -9,7 +9,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
 
     
   allow do
-    origins 'https://reginaf2012.github.io/dottomodachi-front-end/'
+    origins 'https://reginaf2012.github.io/'
 
     resource '*',
 
