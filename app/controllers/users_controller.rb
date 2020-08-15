@@ -7,11 +7,10 @@ class UsersController < ApplicationController
         token = encode_token(user_id: user.id)
         render json: { userdata: UserSerializer.new(user), jwt: token }, status: :created
       else
-        if user.errors.length > 1
-          render json: { errors: "#{user.errors.full_messages.join(',')}" }, status: :not_acceptable
-        else
+        if user.errors.full_messages.is_a?(String)
           render json: { errors: "#{user.errors.full_messages}" }, status: :not_acceptable
-        end
+        else
+          render json: { errors: "#{user.errors.full_messages.join(", ")}" }, status: :not_acceptable
       end
     end
 
