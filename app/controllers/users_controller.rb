@@ -11,6 +11,7 @@ class UsersController < ApplicationController
           render json: { errors: "#{user.errors.full_messages}" }, status: :not_acceptable
         else
           render json: { errors: "#{user.errors.full_messages.join(", ")}" }, status: :not_acceptable
+        end
       end
     end
 
