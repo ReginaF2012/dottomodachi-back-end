@@ -7,7 +7,11 @@ class UsersController < ApplicationController
         token = encode_token(user_id: user.id)
         render json: { userdata: UserSerializer.new(user), jwt: token }, status: :created
       else
-        render json: { errors: 'failed to create user' }, status: :not_acceptable
+        if user.errors > 1
+          render json: { errors: "#{user.errors.full_messages.join(',')}" }, status: :not_acceptable
+        else
+          render json: { errors: "#{user.errors.full_messages}" }, status: :not_acceptable
+        end
       end
     end
 
